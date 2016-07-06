@@ -1,0 +1,1 @@
+Esta sección contiene el código relacionado con la lógica el juego.

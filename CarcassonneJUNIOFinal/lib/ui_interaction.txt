@@ -1,0 +1,105 @@
+
+==================================================================================
+API for UI.
+==================================================================================
+
+	getNames :  function (Game)
+		/*
+		 * Returns all the players names in the game
+		 */
+
+
+	getCoords : function(Game)
+		/*
+		 *	Returns the tile's id and the coords (arry with 4 entries)
+		 *		id tile ,
+		 *	 	rot0: [],					array of "info"s
+		 *		rot1: [],
+		 *		rot2: [],
+		 *		rot3: [],
+		 *
+		 *	With "info" set as :
+		 *		· cell 					[x , y]
+		 *		· dummyPos					[ n, nw, w, sw, s, se, e, ne, c ]
+		 *									all false except the plausible dummy
+		 *								    positions in the tile
+		 */
+
+	setTile : function (Game, x, y, rot , arry)
+		/*
+		 *  Set the position where the tile is placed on the board and its rotation
+		 *
+		 *  And also sets the position where dummy is placed in the tile.
+		 *
+		 *		arry = [ n,  nw,   w,  sw,   s,  se,   e,  ne,   c  ] ,
+		 *				all false except the dummy position in the tile if set
+		 *				all false if dummy is not set
+		 *
+		 * 	Returns the updated info:
+		 *		remDums []  	coordenates of removed dummies
+		 *		scores []		the 4 players score in the same order as names.
+		 */
+
+
+	getIA : function (Game)
+		/*
+		 * Returns the Automatic Player's decision
+		 *
+		 * 		·tileId
+		 *		·tileCoord
+		 *		·tileRot
+		 *		·dummyPos           		if set, null otherwise
+		 *		·remDums: [[x, y], ...]  	coords of the removed dummies
+		 *		·scores:  			the new player's core
+		 */
+
+
+On any error those methods return null.
+
+
+
+====================================================================================
+SOME NOTES TAKEN
+====================================================================================
+
+
+initInterface(idGame, [{id: ___, name: ___}])
+
+
+Logic -> UI
+newTurn(idGame, idPlayer, idTile, rotations)
+
+	rotations = {
+		rot0: info,
+		rot1: info,
+		rot2: info,
+		rot3: info,
+	}
+
+	info = {
+		coord: [x,y];
+		// 		 [ n,  nw,   w,  sw,   s,  se,   e,  ne,   c  ]
+		dummies: [] // de 0 a 8 true y false donde vaya el dummy
+	}
+
+
+
+UI -> Logic
+endTurn(backInfo)
+
+	backInfo = {
+		coord: [x,y];
+		// 		 [ n,  nw,   w,  sw,   s,  se,   e,  ne,   c  ]
+		dummies: [] // de 0 a 8 true y false donde vaya el dummy
+		rotation: 0-3
+	}
+
+
+Logic -> UI
+events(playersUpdate)
+	playersUpdate = [playerUpdate]
+
+	playerUpdate = {
+		coord: [[x, y], ...]
+		incScore: // lo que sube la puntacion
+	}

@@ -1,0 +1,58 @@
+
+
+<head>
+	<title>CARCASSONNE</title>
+	<link rel="stylesheet" type="text/css" href="http://menuscss.net84.net/jimdo/botons/css3_html5/buttons.css" />
+</head>
+
+
+<template name="main">
+	<li id="registerLink"><a href="{{pathFor route='register'}}">Registrate!</a></li>
+	<div class="container">
+		{{> yield "container"}}
+	</div>
+	<div class="game">
+		{{> game}}
+	</div>
+	<div class="row" id='container'>
+				<canvas id="game" width="825" height="375"></canvas>
+	</div>
+</template>
+
+<template name="register">
+	<div id="reg-id">
+		<form class="BotonReg">
+			<p>Nombre de usuario: <input type="text" name="username" placeholder="Username" required /></p>
+			<p>E-mail: <input type="email" name="email" placeholder="Email" required /></p>
+			<p>Contraseña: <input type="password" name="password" placeholder="Password" required /></p>
+			<button type="submit"> Enviar! </button>
+		</form>
+ </div>
+</template>
+
+<template name="game">
+
+	<br><button  type= "submit" id="crearPartida" >Unirme a una partida!</button>
+	<br><button type= "submit" id="StartGame" hidden>Comenzar Partida</button>
+
+	<p><h1 id="JugTurno" hidden></h1></p>
+	{{#each players}}
+		<p>{{name}}   Score: {{score}} Followers: {{followers}}</p>
+	{{/each}}
+
+
+	{{#if pickTile}}
+		<br><button type= "submit" id="PickTile" >Dame una ficha</button>
+	{{/if}}
+
+	{{#if rotateTile}}
+		<br><button type= "submit" id="RotateTile" > Rotar ficha </button>
+		<button type= "submit" id="Ok" >Colocar ficha</button>
+	{{/if}}
+
+	{{#if existFollowers}}
+		<br><button type= "submit" id="Terminar" >Terminar Turno</button>
+	{{/if}}
+
+
+</template>

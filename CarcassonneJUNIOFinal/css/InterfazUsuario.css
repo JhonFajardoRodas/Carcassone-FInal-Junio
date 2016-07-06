@@ -1,0 +1,46 @@
+body {background-color: #61380B;
+   background-image: url("http://all4desktop.com/data_images/original/4238051-background.jpg");
+   background-repeat: no-repeat;
+   background-attachment: fixed;
+}
+#JugTurno {color: white;}
+p {color: white;}
+h1 {color: #F3E2A9;}
+a {text-decoration: none; color: white; font-size: 20px;}
+
+#reg-id p{
+  color: ghostwhite;
+}
+
+
+.row{
+/*  border: #9933FF  2px solid;*/
+  padding-left: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+input[type="text"]{
+  width:200px;
+  height:30px;
+  position: relative;
+  border-color:#63BAF5;
+  color: black;
+}
+
+
+input[type="email"]{
+  width:200px;
+  height:30px;
+  position: relative;
+  border-color:#63BAF5;
+  color: black;
+}
+
+input[type="password"]{
+  width:200px;
+  height:30px;
+  position: relative;
+  border-color:#63BAF5;
+  color: black;
+}
